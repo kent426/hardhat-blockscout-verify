@@ -8,6 +8,9 @@ import {
 import fetch from "node-fetch";
 import path from "path";
 
+
+
+
 task("blockscout-verify")
   .addPositionalParam("filePath", "File path to the contract", "", types.string)
   .addPositionalParam("address", "Deployed contract address", "", types.string)
@@ -47,10 +50,10 @@ task("blockscout-verify")
       name: contractName,
       compilerVersion: verifyConfig!.compilerVersion,
       optimization: verifyConfig!.optimization,
-      contractSourceCode: flattenContent,
       autodetectConstructorArguments: "true",
-      evmVersion: verifyConfig!.evmVersion,
-      optimizationRuns: verifyConfig!.optimizationRuns,
+      evmVersion: verifyConfig?.evmVersion,
+      optimizationRuns: verifyConfig?.optimizationRuns,
+      contractSourceCode: flattenContent,
     };
     const blockscoutURL = hre.config.blockscoutVerify.blockscoutURL;
     console.log(`Sending file for verification to ${blockscoutURL}`);

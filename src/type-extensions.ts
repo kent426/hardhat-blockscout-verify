@@ -27,8 +27,8 @@ declare module "hardhat/types/config" {
   export interface BlockscoutVerifyContractConfig {
     compilerVersion: SOLIDITY_VERSION;
     optimization: boolean;
-    evmVersion: EVM_VERSION;
-    optimizationRuns: number;
+    evmVersion?: EVM_VERSION;
+    optimizationRuns?: number;
   }
 
   // We also extend the Config type, which represents the configuration
