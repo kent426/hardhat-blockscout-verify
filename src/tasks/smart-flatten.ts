@@ -11,7 +11,7 @@ task("smart-flatten", async function (
   });
   let count = 0;
   fileContent = fileContent.replace(
-    /\/\/ SPDX-License-Identifier: [A-Za-z0-9.]+/gi,
+    /SPDX-License-Identifier: [A-Za-z0-9.]+/gi,
     (x: string) => {
       if (count === 0) {
         count++;
